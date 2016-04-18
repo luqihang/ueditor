@@ -6,20 +6,21 @@
     <title></title>
     <script type="text/javascript" charset="utf-8" src="../ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="editor_api.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../third-party/jquery-1.10.2.js"></script>
 </head>
 <body>
     <h1>UEditor简单功能</h1>
 
     <!--style给定宽度可以影响编辑器的最终宽度-->
-    <script type="text/plain" id="myEditor">
-        <p>这里我可以写一些输入提示</p>
-    </script>
+    <textarea id="myEditor">
+    </textarea>
     <script type="text/javascript">
-        UE.getEditor('myEditor',{
+        var ue = UE.getEditor('myEditor',{
             //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
             toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']],
             //focus时自动清空初始化时的内容
             autoClearinitialContent:true,
+            placeholder: '初始值',
             //关闭字数统计
             wordCount:false,
             //关闭elementPath
@@ -27,7 +28,31 @@
             //默认的编辑区域高度
             initialFrameHeight:300
             //更多其他参数，请参考ueditor.config.js中的配置项
-        })
+        });
+
+        // console.log(UE.getPlaceholder());
+
+        ue.ready(function(){
+            // way 1 函数调用
+            ue.setPlaceholder('提示1');
+            console.log(ue.getPlaceholder());
+
+
+            console.log(ue.queryCommandValue('placeholder'));
+
+            setTimeout(function(){
+                // way 2 函数调用
+                // 修改placehoder的值
+                ue.execCommand('placeholder','蜗牛');
+                // 查询placehoder的值
+                console.log(ue.queryCommandValue('placeholder'));
+                // 查询placehoder的状态
+                console.log(ue.queryCommandState('placeholder'));
+            },3000);
+
+        });
+
+
     </script>
 
 </body>

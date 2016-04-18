@@ -64,8 +64,9 @@
         //实例化一个不带ui的编辑器,注意此处的实例化对象是baidu.editor下的Editor，而非baidu.editor.ui下的Editor
         var myeditor = UE.getEditor('editor_iframe_holder',{
             toolbars:[[]],
-            initialContent: '初始化内容',//初始化编辑器的内容
-            initialFrameHeight: 200
+            // initialContent: '初始化内容',//初始化编辑器的内容
+            placeholder: '123213213213',
+            initialFrameHeight: 500
         });
         //给编辑器增加一个选中改变的事件，用来判断所选内容以及状态
         myeditor.addListener('selectionchange', function (){
@@ -99,7 +100,7 @@
         function execUnderline(cmd){
             myeditor.execCommand(cmd);
         }
-        
+
     </script>
 </body>
 </html>

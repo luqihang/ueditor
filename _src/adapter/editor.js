@@ -325,6 +325,7 @@
 
         },
         _initToolbars:function () {
+
             var editor = this.editor;
             var toolbars = this.toolbars || [];
             var toolbarUis = [];
@@ -343,8 +344,12 @@
                         if(toolbarItem == '||'){
                             toolbarItem = 'Breakline';
                         }
+                        if(toolbarItem == '[' || toolbarItem == ']'){
+                            toolbarItem = 'Collapse';
+                        }
                         var ui = baidu.editor.ui[toolbarItem];
                         if (ui) {
+
                             if(utils.isFunction(ui)){
                                 toolbarItemUi = new baidu.editor.ui[toolbarItem](editor);
                             }else{

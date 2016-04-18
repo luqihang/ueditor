@@ -23,8 +23,24 @@
         getHtmlTpl: function (){
             var buff = [];
             for (var i=0; i<this.items.length; i++) {
-                buff[i] = this.items[i].renderHtml();
+                if(this.items[i].uiName == 'collapse') {
+
+                    var render = this.items[i].renderHtml();
+                    var cls = [];
+                    for (var j = 0, i=i+1 ; i < this.items.length && this.items[i].uiName != 'collapse'; i++, j++) {
+                        // console.log(this.items[i]);
+                        cls[j] = this.items[i].renderHtml();
+                    }
+
+                     var html = cls.join('');
+                     html = render.replace(/{{content}}/,html);
+                     buff[i] = html;
+                } else {
+                    buff[i] = this.items[i].renderHtml();
+                }
+
             }
+
             return '<div id="##" class="edui-toolbar %%" onselectstart="return false;" onmousedown="return $$._onMouseDown(event, this);">' +
                 buff.join('') +
                 '</div>'

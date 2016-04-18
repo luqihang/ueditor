@@ -1,0 +1,28 @@
+/* */
+.edui-default .edui-toolbar .edui-collapse {
+    width: 40px;
+    max-width: 100%;
+    height: 20px;
+    margin: 2px 4px 2px 3px;
+    /*background: grey;*/
+    /*transition: all 1s;*/
+}
+
+.edui-default .edui-toolbar .edui-collapse .edui-collapse-body{
+    width: 0px;
+    display: inline;
+}
+
+.edui-default .edui-toolbar .edui-collapse .edui-collapse-btn{
+    /*width: 0px;*/
+    padding: 2px;
+    display: inline;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+.edui-default .edui-toolbar .edui-collapse .edui-collapse-btn:hover{
+    background-color: #fff5d4;
+    /*padding: 0;*/
+    border: 1px solid #dcac6c;
+}
